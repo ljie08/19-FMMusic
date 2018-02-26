@@ -1,0 +1,130 @@
+//
+//  PrefixHeader.pch
+//  music
+//
+//  Created by 寿煜宇 on 16/5/12.
+//  Copyright © 2016年 Fyus. All rights reserved.
+//
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+/*Xcode7以下版本需要添加下方宏定义 支持AF*/
+#ifdef TARGET_OS_IOS
+
+#define TARGET_OS_IOS TARGET_OS_IPHONE
+
+#endif
+
+#ifndef TARGET_OS_WATCH
+
+#define TARGET_OS_WATCH 0
+
+#endif
+/*Xcode7以下版本需要添加上方宏定义 支持AF*/
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//用于存放全局宏定义 或者 静态字符串
+#import "Constants.h"
+/*自定义的类*/
+#import "AppDelegate.h"
+#import <AFNetworking.h>        //Github排名第一的第三方网络请求类库，封装了系统的NSURLSession+NSOperation
+#import <UIKit+AFNetworking.h> //扩展
+
+#import <MBProgressHUD.h>       //实现安卓toast风格提示，弹出提示框架
+#import <Masonry.h>         //超好用的链式书写AutoLayout的第三方类库，好用的根本停不下来
+
+#import <MJRefresh.h>    //优秀的滚动视图头部和脚步刷新效果
+#import <MJExtension.h>     //优秀的Json解析类库
+
+/* 改变系统的target+selector模式为 block模式。 带来紧凑的代码风格，高效率的回调执行 */
+#import <BlocksKit.h>
+#import <BlocksKit+MessageUI.h>
+#import <BlocksKit+UIKit.h>
+
+#import <MBProgressHUD.h>       //实现安卓toast风格提示，弹出提示框架
+#import "MBProgressHUD+HR.h"
+
+#import "UIImageView+WebCache.h"
+
+
+#pragma mark --
+//#import "UIImageView+WebCache.h"
+//#import "Model_Header.h"
+#import "LJUtil.h"
+//#import "MJExtension.h"
+//#import "UrlDefine.h"
+//#import "WebManager.h"
+//#import "JJRefreshTabView.h"
+#import "UITableView+HD_NoList.h"
+//#import "LLRefreshCollectionView.h"
+//#import "UICollectionView+NoList.h"
+
+#pragma mark --
+
+//当前的windows
+#define CurrentKeyWindow [UIApplication sharedApplication].keyWindow
+#define ScreenBounds [[UIScreen mainScreen] bounds]     //屏幕frame
+#define Screen_Height [[UIScreen mainScreen] bounds].size.height //屏幕高度
+#define Screen_Width [[UIScreen mainScreen] bounds].size.width   //屏幕宽度
+
+#define Width_Scale         Screen_Width / 375.0
+#define Height_Scale         Screen_Height / 667.0
+
+#define RGBCOLOR(r,g,b,a) [UIColor colorWithRed:(r) / 255.0f green:(g) / 255.0f blue:(b) / 255.0f alpha:(a)] //颜色
+//当前的windows
+#define CurrentKeyWindow [UIApplication sharedApplication].keyWindow
+#define weakSelf(self) autoreleasepool{} __weak typeof(self) weak##Self = self;//定义弱引用
+
+#define DateType @"yyyy-MM-dd" //日期格式
+
+#define MyColor [LJUtil hexStringToColor:@"#d4237a"] //主题色
+#define WhiteColor [UIColor whiteColor] //白色
+#define FontColor [LJUtil hexStringToColor:@"#333333"] //字体
+#define FontLightColor [LJUtil hexStringToColor:@"#E9E8EA"] //浅灰色字体
+#define RedColor [LJUtil hexStringToColor:@"#f23030"] //红色
+#define GreenColor [LJUtil hexStringToColor:@"#7bb2ed"] //绿色
+
+#define WhiteAlphaColor     [[UIColor whiteColor] colorWithAlphaComponent:0.4] //半透明白色
+
+#define FontSize(a) [UIFont systemFontOfSize:a] //字体大小
+
+#define IOS8_OR_LATER ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 8.0)
+
+
+#define MusicPlaceholderImage [UIImage imageNamed:@"nopic"]//占位图
+
+#define PlaceholderImage [UIImage imageNamed:@"placeholder"]//占位图
+#define HeaderPlaceholderImage [UIImage imageNamed:@"me"]//占位图
+
+//上一次翻到第几页的key
+//#define CityViewLastRead @"CityViewLastReadPage"
+
+//刷新table数据
+#define RefreshTableviewData @"RefreshTableviewData"
+
+
+#endif /* PrefixHeader_pch */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
